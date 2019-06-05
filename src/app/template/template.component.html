@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-  name:<input type="text">
+  name:<input type="text" [(ngModel)]="user.name" name="name">
   <br>
   <input type="submit">
 </form>

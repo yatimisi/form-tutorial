@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateComponent implements OnInit {
 
+  user = {
+    name: '',
+  };
+
   constructor() { }
 
   ngOnInit() {
@@ -14,6 +18,9 @@ export class TemplateComponent implements OnInit {
 
   onSubmit(e) {
     console.log(e);
+    console.log(e.controls['name'].status);
+    console.log(e.value.name);
+    console.log(this.user.name);
   }
 
 }
