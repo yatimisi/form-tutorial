@@ -1,7 +1,7 @@
-<form (ngSubmit)="onSubmit(form)" #form="ngForm" novalidate>
+<form (ngSubmit)="form.form.valid && onSubmit(form)" #form="ngForm" novalidate>
   name:<input type="text" [(ngModel)]="user.name" #name="ngModel" name="name" required minlength="3">
   <br>
-  <div *ngIf="name.invalid && (name.dirty || name.touched)">
+  <div *ngIf="form.submitted && name.invalid && (name.dirty || name.touched)">
     <p *ngIf="name.hasError('required')">
       姓名必填
     </p>
@@ -9,5 +9,5 @@
       長度最少3位
     </p>
   </div>
-  <input type="submit" [disabled]="form.invalid">
+  <input type="submit">
 </form>
