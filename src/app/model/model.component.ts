@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
+import { debounceTime } from 'rxjs/Operators';
 
 @Component({
   selector: 'app-model',
@@ -15,7 +16,13 @@ export class ModelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    this.userForm.controls.name.valueChanges
+    .pipe(
+      debounceTime(500)
+    )
+    .subscribe(
+      data => console.log(data)
+    );
   }
 
 }
