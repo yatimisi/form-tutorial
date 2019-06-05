@@ -12,4 +12,8 @@ export class TemplateComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(e) {
+    console.log(e);
+  }
+
 }

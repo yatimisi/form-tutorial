@@ -1,5 +1,5 @@
-<form action="">
-  name: <input type="text">
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  name:<input type="text">
   <br>
   <input type="submit">
 </form>
