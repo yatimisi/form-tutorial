@@ -1,0 +1,11 @@
+<h2>User Detail</h2>
+<h3><i>FormControl in a FormGroup</i></h3>
+<form [formGroup]="userForm" novalidate>
+  <div >
+    <label >Name:
+      <input formControlName="name">
+    </label>
+  </div>
+</form>
+<p>Form value: {{ userForm.value | json }}</p>
+<br>
