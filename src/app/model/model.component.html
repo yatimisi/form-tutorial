@@ -9,3 +9,44 @@
 </form>
 <p>Form value: {{ userForm.value | json }}</p>
 <br>
+<hr>
+<br>
+<form [formGroup]="teacherForm" novalidate>
+  <div >
+    <label >Name:
+      <input formControlName="name">
+    </label>
+  </div>
+  <div formArrayName="secretLairs" class="well well-lg">
+    <div *ngFor="let address of secretLairs.controls; let i=index" [formGroupName]="i" >
+      <!-- The repeated address template -->
+      <h4>Address #{{i + 1}}</h4>
+      <div style="margin-left: 1em;">
+        <div>
+          <label>Street:
+            <input formControlName="street">
+          </label>
+        </div>
+        <div>
+          <label>City:
+            <input formControlName="city">
+          </label>
+        </div>
+        <div>
+          <label>State:
+            <select formControlName="state">
+              <option *ngFor="let state of states" [value]="state">{{state}}</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>Zip Code:
+            <input formControlName="zip">
+          </label>
+        </div>
+      </div>
+      <br>
+      <!-- End of the repeated address template -->
+    </div>
+  </div>
+</form>
